@@ -31,15 +31,9 @@ public:
 	void ReinitializeRequest() const;
 	void Clear() const;
 
-	float GetProgressValue() const
-	{
-		return Progress;
-	}
+	float GetProgressValue() const;
 
-	bool IsDownloading() const
-	{
-		return bIsDownloading;
-	}
+	bool IsDownloading() const;
 
 
 #pragma region Delegates Related

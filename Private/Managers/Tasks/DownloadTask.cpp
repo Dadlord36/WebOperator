@@ -73,6 +73,11 @@ void UDownloadTask::UpdateRequestStatusReflection()
 	bIsDownloading = RelatedHttpRequest ? RelatedHttpRequest->GetStatus() == EHttpRequestStatus::Processing : false;
 }
 
+bool UDownloadTask::IsDownloading() const
+{
+	return bIsDownloading;
+}
+
 void UDownloadTask::SubscribeToRequestIsCompletedDelegate(const FHttpRequestCompleteMulticast::FDelegate& Delegate) const
 {
 	if (RequestIsCompletedDelegate.IsBoundToObject(Delegate.GetUObject()))
@@ -137,6 +142,11 @@ void UDownloadTask::Clear() const
 	}
 
 	RelatedHttpRequest.Reset();
+}
+
+float UDownloadTask::GetProgressValue() const
+{
+	return Progress;
 }
 
 /*bool UDownloadTask::IsDownloading() const
